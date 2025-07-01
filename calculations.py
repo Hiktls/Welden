@@ -67,11 +67,17 @@ def simulate(startPool,duration,volumeRate):
         time.sleep(0.5)
 
 
+setB = lambda vol,volMax: ((vol/((vol + 500)))) * 100
+
+def simulateLoss(step,final):
+    b0 = 100
+    for i in range(b0,final,step):
+        b = setB(i,final)
+        print(b)
+        loss = b * math.ln(2)
 
 volume = [[5000,200],[200,300]]
 pool = [500,500]
 
 
-p = lmsrPrice([500,300])
-
-print(p)
+simulateLoss(100,10000)
